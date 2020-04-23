@@ -11,9 +11,7 @@
   <section>
     <h2>TODOS</h2>
     <button id="add-todo" (click)="addTodo()">Add Todo</button>
-    <ul>
-      <li *ngFor="let todo of todos" class="todo">{{ todo.title }}</li>
-    </ul>
+    <nx-course-todos [todos]="todos"></nx-course-todos>
   </section>
 
   <h2>Resources &amp; Tools</h2>
