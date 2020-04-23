@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todos';
+  todos = ['Hardcoded todo 1'];
+
+  addTodo() {
+    this.todos.push(`Dynamic todo ${ this.todos.length + 1 }`)
+  }
 }
