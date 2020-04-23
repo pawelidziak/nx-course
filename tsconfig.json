@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-course/data": ["libs/data/src/index.ts"]
+      "@nx-course/data": ["libs/data/src/index.ts"],
+      "@nx-course/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
