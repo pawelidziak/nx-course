@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+
+interface Todo {
+  title: string;
+}
 
 @Component({
   selector: 'nx-course-root',
@@ -7,9 +12,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todos';
-  todos = ['Hardcoded todo 1'];
+  todos: Todo[];
+
+  constructor(private http: HttpClient) {
+    this.fetch();
+  }
+
+  fetch() {
+    this.http.get<Todo[]>('/api/todos').subscribe(t => (this.todos = t));
+  }
 
   addTodo() {
-    this.todos.push(`Dynamic todo ${ this.todos.length + 1 }`)
+    this.http.post('/api/addTodo', {}).subscribe(() => {
+      this.fetch();
+    });
   }
 }
